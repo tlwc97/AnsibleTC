@@ -1,5 +1,5 @@
 import pyodbc as db
-from DbConstants import *
+from AnsibleTC.DatabaseTools.Src.DbConstants import *
 
 class DbConnection:
 
@@ -18,7 +18,6 @@ class DbConnection:
 
 
     def getConnectionList(self):
-        conDict = {}
 
         return conDict
 
@@ -29,7 +28,12 @@ class DbConnection:
 
         return 0
 
-    def executeQuery(self):
+    def executeQuery(self, query):
+
+        self.Cur.execute(query)
+        self.Cur.commit()
+
+
         pass
         ## copy code from work version
 
